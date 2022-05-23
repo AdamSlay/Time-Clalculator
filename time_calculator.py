@@ -3,7 +3,8 @@ def add_time(start_time, duration, day = None):
     start = start_time.split(' ')
     stime = start[0].split(':')
     dtime = duration.split(':')
-
+    if duration == '0:00':
+        return start_time
 
 # Variables in use
     start_hour = int(stime[0])
@@ -80,7 +81,8 @@ def add_time(start_time, duration, day = None):
         final_diff = '(next day)'
     elif day_diff > 1:
         final_diff = f'({day_diff} days later)'
-
+    if day > 6:
+        day = day % 7
 
 
 # return the formatted final time
